@@ -1,0 +1,459 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================= GENERAL ================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #111;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+nav a.active-link {
+    color: white;
+    text-shadow: 0 0 15px white;
+}
+
+/* ================= SECTIONS ================= */
+section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+/* Show / Hide System */
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ================= HOME SECTION ================= */
+#home-section {
+    background: linear-gradient(to bottom, black, #1a1a1a);
+}
+
+#home-section h2 {
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+#home-section p {
+    font-size: 18px;
+    color: #aaa;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.home-image img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.home-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.home-text h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.home-text p {
+    font-size: 16px;
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* ================= MUSIC SECTION ================= */
+#music-section {
+    background-color: #000;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#music-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* Grid layout for music cards */
+.music-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Music card style */
+.music-card {
+    background-color: #111;
+    border: 1px solid #ffffff10;
+    border-radius: 15px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    transition: all 0.4s ease;
+}
+
+.music-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 35px rgba(255,255,255,0.3);
+}
+
+.music-card img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.15);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.music-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255,255,255,0.5);
+}
+
+.music-card h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.music-card p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.music-card .artist-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.music-card .artist-links a {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #ffffff40;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.music-card .artist-links a:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px white;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Artist Platform Links */
+.artist-links {
+    margin-bottom: 50px;
+}
+
+.artist-links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
+    border: 1px solid white;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.artist-links a:hover {
+    background: white;
+    color: black;
+}
+
+body {
+    background-color: #000;
+}
+
+h1, h2 {
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.artist-links a {
+    border: 1px solid #ffffff40;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    border-radius: 30px;
+}
+
+.artist-links a:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px white;
+}
+
+.music-card {
+    background: #0a0a0a;
+    border: 1px solid #ffffff10;
+    transition: all 0.3s ease;
+}
+
+.music-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
+
+/* Featured Release */
+.featured-release {
+    text-align: center;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.featured-release h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.featured-release p {
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.featured-release .btn {
+    padding: 10px 20px;
+    border: 1px solid white;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.featured-release .btn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Artist Photo in Music Section */
+.artist-photo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.artist-photo img {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    margin-bottom: 12px;
+}
+
+.artist-photo p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Blog Section */
+.blog-post {
+    background-color: #111;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.blog-post h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.blog-post p {
+    color: #aaa;
+}
+
+.blog-post .btn {
+    margin-top: 10px;
+}
+
+/* Booking Section */
+#booking-section {
+    background-color: #000;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#booking-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+#booking-section p {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.booking-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#booking-form input,
+#booking-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff20;
+    border-radius: 12px;
+    background-color: #111;
+    color: white;
+    font-size: 14px;
+}
+
+#booking-form input::placeholder,
+#booking-form textarea::placeholder {
+    color: #aaa;
+}
+
+#booking-form button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #ffffff40;
+    padding: 12px 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#booking-form button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px white;
+}
+
+/* ================= HOME GALLERY / PHOTOS ================= */
+.home-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.home-photo-card {
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.home-photo-card img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
+}
+
+.home-photo-card img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+.home-photo-card p {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* ===== NEW MERGED HOME PHOTO STYLES ===== */
+.home-photo {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.home-photo img {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.home-photo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255,255,255,0.3);
+}
+
+.home-photo p {
+    font-size: 16px;
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
