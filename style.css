@@ -3,9 +3,9 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fefefe;
-    color: #333;
-}
+    background-color: #000; /* black background */
+    color: #fff; /* white text for readability */
+} 
 
 header {
     background-color: #111;
@@ -187,4 +187,57 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;
+}
+
+/* Base button style */
+.btn {
+    background-color: #ff4081; 
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: #ff1a75;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 64, 129, 0.5);
+}
+
+/* Active / Focus effect */
+.btn:active,
+.btn:focus {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(255, 64, 129, 0.5);
+    outline: none;
+}
+
+/* Fade-in animation on page load */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.btn {
+    background-color: #ff1493; /* Bright pink for contrast */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* For <a> tags */
+}
+
+.btn:hover {
+    background-color: #ff69b4; /* Slightly lighter pink on hover */
 }
