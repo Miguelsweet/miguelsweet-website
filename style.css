@@ -1,51 +1,41 @@
-/* ================= BODY & GENERAL ================= */
+/* General Styles */
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    font-family: 'Arial', Helvetica, sans-serif;
-    background-color: #0f0f0f;
-    color: white;
-    line-height: 1.6;
+    padding: 0;
+    background-color: #fefefe;
+    color: #333;
+}
+
+header {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
     text-align: center;
 }
 
-/* ================= HEADER & NAV ================= */
-header {
-    padding: 30px 20px;
-    background: #111;
-}
-
 header h1 {
-    font-size: 36px;
-    margin-bottom: 5px;
-    color: #00ffff;
-}
-
-header p {
-    color: #ccc;
-    font-size: 18px;
+    margin: 0;
+    font-size: 2rem;
 }
 
 nav {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 nav a {
-    color: #00ffff;
-    margin: 0 15px;
+    color: #fff;
     text-decoration: none;
+    margin: 0 15px;
     font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
 }
 
-nav a:hover,
 nav a.active-link {
-    color: #ff00cc;
+    border-bottom: 2px solid #ff4081;
 }
 
-/* ================= SECTIONS ================= */
 section {
-    padding: 60px 20px;
+    padding: 50px 20px;
 }
 
 .hidden {
@@ -56,394 +46,145 @@ section {
     display: block;
 }
 
-h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #00ffff;
-}
-
-h3 {
-    margin-top: 30px;
-    color: #ff00cc;
-}
-
-/* ================= HERO / HOME IMAGES ================= */
-.hero img {
-    width: 300px;
-    max-width: 80%;
-    height: auto;
-    border-radius: 15px;
-    margin-top: 20px;
-}
-
-/* ================= MUSIC SECTION ================= */
-.music-grid {
+/* Home Section */
+.home-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
-    margin-top: 20px;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-image img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.home-text {
+    max-width: 600px;
+}
+
+.home-links .btn {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Home Photos */
+.home-photo {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.home-photo img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.home-photo p {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Music Section */
+.featured-release {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.featured-release img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.artist-photo img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.artist-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ff4081;
+    font-weight: bold;
+}
+
+.music-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .music-card {
-    background: #111;
-    padding: 15px;
-    border-radius: 12px;
-    max-width: 250px;
     text-align: center;
-    transition: transform 0.3s;
-}
-
-.music-card:hover {
-    transform: scale(1.05);
+    max-width: 200px;
 }
 
 .music-card img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
-.music-card h3 {
-    margin: 10px 0 5px 0;
-}
-
-.music-card p {
-    color: #ccc;
-    font-size: 14px;
-}
-
-/* ================= BLOG SECTION ================= */
+/* Blog Section */
 .blog-post {
-    background: #111;
+    margin-bottom: 30px;
     padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 12px;
-    text-align: left;
-}
-
-.blog-post img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
 
 .blog-post h3 {
-    color: #ff00cc;
+    margin-top: 0;
 }
 
-.blog-post p {
-    color: #ccc;
-    margin-bottom: 10px;
+.blog-post .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #ff4081;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
-.blog-subscribe {
-    margin-top: 20px;
-}
-
-.blog-subscribe input[type="email"] {
-    width: 60%;
-    max-width: 300px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin-right: 10px;
-}
-
-.blog-subscribe button {
-    padding: 10px 20px;
-    background: #00ffff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    color: black;
-}
-
-.blog-subscribe button:hover {
-    background: #ff00cc;
-    color: white;
-}
-
-/* ================= BOOKING SECTION ================= */
-.booking-photo img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 12px;
-}
-
-.booking-form-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Booking Section */
+.booking-form-container {
+    max-width: 500px;
+    margin: 20px auto;
 }
 
 .booking-form-container input,
 .booking-form-container textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .booking-form-container button {
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: #fff;
     border: none;
-    background: #00ffff;
-    color: black;
-    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .booking-form-container button:hover {
-    background: #ff00cc;
-    color: white;
+    background-color: #e73370;
 }
 
-/* ================= BUTTONS ================= */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #00ffff;
-    color: black;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-top: 10px;
-    transition: all 0.3s;
-}
-
-.btn:hover {
-    background: #ff00cc;
-    color: white;
-}
-
-/* ================= FOOTER ================= */
+/* Footer */
 footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
     padding: 20px;
-    font-size: 14px;
-    color: #aaa;
-    background: #111;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-    .music-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .blog-post,
-    .booking-form-container {
-        width: 90%;
-    }
-
-    .hero img {
-        width: 80%;
-    }
-}
-
-/* ================= SUPPORT SECTION ================= */
-#support-section {
-    padding: 60px 20px;
-    background: #111;
-    text-align: center;
-}
-
-.support-photo {
-    margin: 30px 0;
-}
-
-.support-main-photo {
-    width: 300px;
-    max-width: 90%;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
-.support-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.support-card {
-    background: #0f0f0f;
-    padding: 15px;
-    border-radius: 12px;
-    width: 180px;
-    text-align: center;
-    transition: transform 0.3s, background 0.3s;
-    color: white;
-    text-decoration: none;
-}
-
-.support-card:hover {
-    transform: scale(1.05);
-    background: #1a1a1a;
-}
-
-.support-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-}
-
-.support-card p {
-    font-size: 14px;
-    margin: 0;
-    color: #ccc;
-}
-
-.support-note {
-    margin-top: 25px;
-    font-size: 16px;
-    color: #00ffff;
-}
-
-/* ================= INVEST SECTION ================= */
-#invest-section {
-    padding: 50px 20px;
-    background: #0d0d0d; /* dark background for elegance */
-    color: #ffffff;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-}
-
-#invest-section h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #00ffff; /* neon accent */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-#invest-section p {
-    font-size: 18px;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    line-height: 1.6;
-    color: #ddd;
-}
-
-/* Investor Registration Form */
-.invest-registration form {
-    max-width: 500px;
-    margin: 0 auto 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.invest-registration input,
-.invest-registration button {
-    padding: 12px 15px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-}
-
-.invest-registration input {
-    background: #1a1a1a;
-    color: #fff;
-    border: 1px solid #333;
-}
-
-.invest-registration input::placeholder {
-    color: #aaa;
-}
-
-.invest-registration button {
-    background: #00ffff;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.invest-registration button:hover {
-    background: #00cccc;
-}
-
-/* Paystack Payment Placeholder */
-#paystack-payment {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 30px;
-    border: 2px dashed #00ffff;
-    border-radius: 12px;
-    background: #111;
-    color: #fff;
-    font-weight: bold;
-}
-
-#paystack-payment button {
-    background: #00ffff;
-    color: #000;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: 0.3s;
-}
-
-#paystack-payment button:hover {
-    background: #00cccc;
-}
-
-/* Investor Dashboard */
-#investor-dashboard {
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 30px;
-    background: #1a1a1a;
-    border-radius: 12px;
-    border: 2px solid #00ffff;
-    text-align: center;
-}
-
-#investor-dashboard h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #00ffff;
-}
-
-#investor-dashboard p {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #fff;
-}
-
-#investor-dashboard span {
-    font-weight: bold;
-    color: #00ffff;
-}
-
-/* Responsive */
-@media screen and (max-width: 600px) {
-    #invest-section h2 {
-        font-size: 28px;
-    }
-
-    .invest-registration form,
-    #paystack-payment,
-    #investor-dashboard {
-        width: 90%;
-        padding: 20px;
-    }
-
-    #investor-dashboard p {
-        font-size: 18px;
-    }
+    font-size: 0.9rem;
 }
