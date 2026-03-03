@@ -20,19 +20,35 @@ header h1 {
 }
 
 nav {
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
 }
 
 nav a {
-    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+    color: #fff;
+    background-color: #111;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
-nav a.active-link {
-    border-bottom: 2px solid #ff4081;
+/* Hover effect */
+nav a:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+    transform: translateY(-3px);
 }
+
+/* Active (current section) */
+nav a.active-link {
+    background-color: #ff1493;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+    border: 1px solid #ff69b4;
+} 
 
 section {
     padding: 50px 20px;
@@ -240,4 +256,14 @@ footer {
 
 .btn:hover {
     background-color: #ff69b4; /* Slightly lighter pink on hover */
+}
+
+section {
+    background-color: #111; /* dark grey box */
+    margin: 40px auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.2); /* soft pink glow */
 }
