@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="emoji-bg"></div>
 
 <!-- HEADER -->
 <header>
@@ -48,38 +49,60 @@
 
 <!-- MUSIC SECTION -->
 <section id="music-section" class="hidden">
-    <h2>Music</h2>
-    <p>
-        Dive into the world of Miguelsweet🩶🍭♠️ and experience two of his standout singles, crafted with emotion, rhythm, and a touch of Afrobeats magic.
-    </p>
-    <div class="featured-release">
-        <h3>Only Daughter</h3>
-        <img src="images/cover_only daughter.jpg" alt="Only Daughter Cover" class="music-cover">
-        <p>
-            "Only Daughter" is a heartfelt track that captures love, longing, and connection. With smooth Afro-soul vibes and irresistible hooks, this song is perfect for those moments when love takes center stage.
-        </p>
-        <div class="artist-links">
-            <a href="https://open.spotify.com/artist/0ysfmyqmJ3gVvv9RMavnpt" target="_blank">Spotify</a>
-            <a href="https://music.apple.com/us/artist/miguelsweet/1681752778" target="_blank">Apple Music</a>
-            <a href="https://youtube.com/@miguelsweet1" target="_blank">YouTube</a>
-            <a href="https://on.soundcloud.com/fANDI380x4vNcDA5I3" target="_blank">SoundCloud</a>
-        </div>
-    </div>
-    <div class="featured-release">
-        <h3>Keep It</h3>
-        <img src="images/cover_keep if.jpg" alt="Keep It Cover" class="music-cover">
-        <p>
-            "Keep It" brings a mix of vibrant Afrobeats energy and romantic storytelling. This track celebrates love, authenticity, and staying true to your emotions. Perfect for playlists that need rhythm, heart, and a little sweetness.
-        </p>
-        <div class="artist-links">
-            <a href="https://open.spotify.com/artist/0ysfmyqmJ3gVvv9RMavnpt" target="_blank">Spotify</a>
-            <a href="https://music.apple.com/us/artist/miguelsweet/1681752778" target="_blank">Apple Music</a>
-            <a href="https://youtube.com/@miguelsweet1" target="_blank">YouTube</a>
-            <a href="https://on.soundcloud.com/fANDI380x4vNcDA5I3" target="_blank">SoundCloud</a>
-        </div>
-    </div>
-</section>
+  <div class="music-list">
 
+    <div class="music-card">
+      <img src="covers/cover_bella.jpg" alt="Bella">
+      <div class="music-info">
+        <h3>Bella</h3>
+        <p>A fun track to brighten your mood.</p>
+        <p>Price: $2</p>
+      </div>
+      <button class="btn" onclick="buySong('bella.mpg')">Buy</button>
+    </div>
+
+    <div class="music-card">
+      <img src="covers/cover_comeover.jpg" alt="Come Over">
+      <div class="music-info">
+        <h3>Come Over</h3>
+        <p>Vibey smooth Afrobeats for chill moments.</p>
+        <p>Price: $2</p>
+      </div>
+      <button class="btn" onclick="buySong('come over.mpg')">Buy</button>
+    </div>
+
+    <div class="music-card">
+      <img src="covers/cover_forever.jpg" alt="Forever">
+      <div class="music-info">
+        <h3>Forever</h3>
+        <p>A romantic song for lasting love.</p>
+        <p>Price: $2</p>
+      </div>
+      <button class="btn" onclick="buySong('forever.mpg')">Buy</button>
+    </div>
+
+    <div class="music-card">
+      <img src="covers/cover_keepit.jpg" alt="Keep It">
+      <div class="music-info">
+        <h3>Keep It</h3>
+        <p>Catchy Afrobeat vibes to uplift your day.</p>
+        <p>Price: $2</p>
+      </div>
+      <button class="btn" onclick="buySong('keepit.mpg')">Buy</button>
+    </div>
+
+    <div class="music-card">
+      <img src="covers/cover_onlydaughter.jpg" alt="Only Daughter">
+      <div class="music-info">
+        <h3>Only Daughter</h3>
+        <p>A soulful track to melt your heart.</p>
+        <p>Price: $2</p>
+      </div>
+      <button class="btn" onclick="buySong('only daughter.mpg')">Buy</button>
+    </div>
+
+  </div>
+</section> 
 <!-- BLOG SECTION -->
 <section id="blog-section" class="hidden">
     <h2>Blog</h2>
@@ -237,5 +260,9 @@ investorForm.addEventListener('submit', function(e) {
 </footer>
 
 <script src="main.js"></script>
+</body>
+</html>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
 </body>
 </html>
