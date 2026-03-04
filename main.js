@@ -30,34 +30,26 @@ links.forEach((link, i) => {
 });
 
 // --- Buy Song Function ---
-function buySong(file) {
-    let email = prompt("Enter your email:");
-    let phone = prompt("Enter your phone number:");
-    if (!email || !phone) return alert("Email and phone are required!");
+function buySong(songFile, price) {
+    let handler = PaystackPop.setup({
+        key: 'pk_live_c78f281b6ca9f6d6a4b89adb7f2b05212750eabc',
+        email: 'customer@email.com', // You can later collect real email
+        amount: price * 100, // Paystack uses kobo
+        currency: "NGN",
 
-    var handler = PaystackPop.setup({
-        key: 'YOUR_PUBLIC_KEY', // replace with your Paystack public key
-        email: email,
-        amount: 200 * 100, // $2 in kobo
-        metadata: {
-            custom_fields: [
-                { display_name: "Phone", variable_name: "phone", value: phone }
-            ]
+        callback: function(response) {
+            alert("Payment successful! Download starting...");
+            window.location.href = "songs/" + songFile;
         },
-        callback: function(response){
-            alert('Payment successful! Your download will start.');
-            const link = document.createElement('a');
-            link.href = 'songs/' + file;
-            link.download = file;
-            link.click();
-        },
-        onClose: function(){
-            alert('Payment cancelled.');
+
+        onClose: function() {
+            alert("Transaction was cancelled.");
         }
     });
+
     handler.openIframe();
 }
-
+ 
 // Floating emojis dynamically
 const emojiContainer = document.querySelector('.emoji-bg');
 const emojis = ['🩶', '🍭', '♠️'];
