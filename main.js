@@ -99,26 +99,32 @@ const productTitle = document.getElementById('product-title');
 const productImg = document.getElementById('product-img');
 const productPriceSpan = document.getElementById('product-price');
 
-// Function to open modal with product info
-function openMerch(name, imgSrc, price) {
-    productTitle.textContent = name;
-    productImg.src = imgSrc;
-    productPriceSpan.textContent = price; // Update button price
-    form.dataset.price = price;           // Store price in form dataset
-    modal.classList.remove('hidden');     // Show modal
-}
+document.querySelectorAll('.merch-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const imgSrc = item.querySelector('img').getAttribute('src');
+    const key = imgSrc.split('/').pop().split('.')[0];
 
-// Close modal when X is clicked
-closeBtn.addEventListener('click', () => {
-    modal.classList.add('hidden');
-});
+    if (merchProducts[key]) {
+      const product = merchProducts[key];
 
-// Close modal if clicked outside the content
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.add('hidden');
+      productTitle.textContent = key.toUpperCase(); // Product name
+      productImg.src = product.img;                // Product image
+      productPriceSpan.textContent = `$${product.price}`; // Product price
+
+      modal.classList.remove('hidden');           // Show modal
     }
+  });
 });
+
+closeBtn.addEventListener('click', () => {
+  modal.classList.add('hidden');
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.classList.add('hidden');
+  }
+}); 
 
 // Paystack form submission
 form.addEventListener('submit', function(e) {
