@@ -32,6 +32,23 @@
     </nav>
 </header>
 
+<!-- Sweet Surprise Lead Capture Popup -->
+<div id="sweet-popup" class="popup-overlay">
+  <div class="popup-content">
+    <h2>🎵 Unlock Your Exclusive MIGUELSWEET Gift!</h2>
+    <p>Get early access to my latest song and special merch offers. Just enter your details below:</p>
+    
+    <form id="sweet-form">
+      <input type="text" name="name" id="sweet-name" placeholder="Your Name" required>
+      <input type="email" name="email" id="sweet-email" placeholder="Email" required>
+      <input type="text" name="phone" id="sweet-phone" placeholder="Phone Number" required>
+      <button type="submit" class="btn">Unlock Now</button>
+    </form>
+  </div>
+</div>
+
+</section>
+
 <!-- HOME SECTION -->
 <section id="home-section" class="active">
     <img src="images/artist.jpg" alt="Miguelsweet">
@@ -295,32 +312,35 @@
   </div>
 
   <!-- Merch Portal Modal -->
-  <div id="merch-modal" class="hidden">
-    <div class="merch-modal-content">
-      <span id="close-merch" class="close">&times;</span>
-      <h2 id="product-title">Product Name</h2>
-      <img id="product-img" src="" alt="Product Image" style="max-width:200px; margin-bottom:10px;">
+<div id="merch-modal" class="hidden">
 
-    <form id="merch-form">
-  <label>Name:</label>
-  <input type="text" name="name" id="full-name" required>
+  <div class="modal-content">
 
-  <label>Address:</label>
-  <input type="text" name="address" id="address" required>
+    <span id="close-merch" class="close">&times;</span>
 
-  <label>Zip Code:</label>
-  <input type="text" name="zip" id="zip" required>
+    <h2 id="product-title">Product Name</h2>
 
-  <label>Email:</label>
-  <input type="email" name="email" id="email" required>
+    <img id="product-img" src="" alt="Product Image" style="max-width:200px; margin-bottom:10px;">
 
-  <label>Phone:</label>
-  <input type="tel" name="phone" id="phone" required>
+    <p>$<span id="product-price"></span></p>
 
-  <button type="submit" class="btn">Pay $<span id="product-price">0</span></button>
-</form>   
-    </div>
-  </div> 
+    <form id="merch-form" action="https://formspree.io/f/mvzwpjeo" method="POST">
+
+      <input type="text" id="full-name" name="name" placeholder="Full Name" required>
+
+      <input type="email" id="email" name="email" placeholder="Email" required>
+
+      <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+
+      <input type="text" name="address" placeholder="Delivery Address" required>
+
+      <button type="submit" class="btn">Place Order</button>
+
+    </form>
+
+  </div>
+
+</div> 
 
 </section>
 <!-- BLOG SECTION -->
@@ -479,10 +499,12 @@ investorForm.addEventListener('submit', function(e) {
     © 2026 Miguelsweet. All Rights Reserved.
 </footer>
 
+<!-- Other HTML content -->
+
+<!-- Load Paystack first -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<!-- Then your main JS -->
 <script src="main.js"></script>
 </body>
-</html>
-
-<script src="https://js.paystack.co/v1/inline.js"></script>
-</body>
-</html>
+</html> 

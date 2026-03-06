@@ -1,3 +1,41 @@
+// Sweet Popup
+const sweetPopup = document.getElementById('sweet-popup');
+const sweetForm = document.getElementById('sweet-form');
+const homeSection = document.getElementById('home-section');
+
+// Show popup after 2 seconds
+setTimeout(() => {
+    sweetPopup.style.display = 'flex';
+}, 2000);
+
+// Form submission
+sweetForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('sweet-name').value;
+    const email = document.getElementById('sweet-email').value;
+    const phone = document.getElementById('sweet-phone').value;
+
+    if(!name || !email || !phone){
+        alert("Please fill all fields to unlock!");
+        return;
+    }
+
+    // Send data to Formspree (replace with your own endpoint if needed)
+    fetch("https://formspree.io/f/mvzwpjeo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone })
+    }).then(() => {
+        alert("🎉 Awesome! Your exclusive content is unlocked!");
+        sweetPopup.style.display = 'none';
+        homeSection.classList.remove('hidden'); // Show home section
+    }).catch(err => {
+        alert("Oops! Something went wrong, try again.");
+        console.error(err);
+    });
+}); 
+
 // Navigation script (section switching)
 const links = document.querySelectorAll('nav a');
 const sections = [
@@ -8,68 +46,75 @@ document.getElementById('blog-section'),
 document.getElementById('booking-section'),
 document.getElementById('support-section'),
 document.getElementById('invest-section')
-]; 
-
+];
 links.forEach((link, i) => {
-    link.addEventListener('click', () => {
-        // Hide all sections
-        sections.forEach(s => {
-            s.classList.add('hidden');
-            s.classList.remove('active');
-        });
+  link.addEventListener('click', () => {
 
-        // Remove active class from all links
-        links.forEach(l => l.classList.remove('active-link'));
-
-        // Show the clicked section
-        sections[i].classList.remove('hidden');
-        sections[i].classList.add('active');
-
-        // Mark link as active
-        link.classList.add('active-link');
+    sections.forEach(s => {
+      s.classList.add('hidden');
+      s.classList.remove('active');
     });
+
+    links.forEach(l => l.classList.remove('active-link'));
+
+    sections[i].classList.remove('hidden');
+    sections[i].classList.add('active');
+
+    link.classList.add('active-link');
+  });
 });
 
-// --- Buy Song Function ---
+
+// Buy Song Function
 function buySong(songFile, price) {
-    let handler = PaystackPop.setup({
-        key: 'pk_live_c78f281b6ca9f6d6a4b89adb7f2b05212750eabc',
-        email: 'customer@email.com',
-        amount: price * 100, // 2 becomes 200 cents
-        currency: "USD",
 
-        callback: function(response) {
-            alert("Payment successful! Download starting...");
-            window.location.href = "songs/" + songFile;
-        },
+  let handler = PaystackPop.setup({
+    key: 'pk_live_c78f281b6ca9f6d6a4b89adb7f2b05212750eabc',
+    email: 'customer@email.com',
+    amount: price * 100,
+    currency: "USD",
 
-        onClose: function() {
-            alert("Transaction was cancelled.");
-        }
-    });
+    callback: function(response) {
+      alert("Payment successful! Download starting...");
+      window.location.href = "songs/" + songFile;
+    },
 
-    handler.openIframe();
-} 
-
- // Floating emojis dynamically
-const emojiContainer = document.querySelector('.emoji-bg');
-
-if (emojiContainer) {  // ONLY run if container exists
-    const emojis = ['🩶', '🍭', '♠️'];
-    const emojiCount = 30;
-
-    for (let i = 0; i < emojiCount; i++) {
-        const span = document.createElement('span');
-        span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        span.style.top = Math.random() * 100 + '%';
-        span.style.left = Math.random() * 100 + '%';
-        span.style.fontSize = (12 + Math.random() * 24) + 'px';
-        span.style.animationDuration = (10 + Math.random() * 20) + 's';
-        emojiContainer.appendChild(span);
+    onClose: function() {
+      alert("Transaction cancelled.");
     }
+  });
+
+  handler.openIframe();
 }
 
+
+// Floating emojis
+const emojiContainer = document.querySelector('.emoji-bg');
+
+if (emojiContainer) {
+
+  const emojis = ['🩶','🍭','♠️'];
+  const emojiCount = 30;
+
+  for (let i = 0; i < emojiCount; i++) {
+
+    const span = document.createElement('span');
+
+    span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    span.style.top = Math.random() * 100 + '%';
+    span.style.left = Math.random() * 100 + '%';
+    span.style.fontSize = (12 + Math.random() * 24) + 'px';
+    span.style.animationDuration = (10 + Math.random() * 20) + 's';
+
+    emojiContainer.appendChild(span);
+  }
+}
+
+
+// Merch products
 const merchProducts = {
+
   "baby": { img: "merch/baby.jpg", price: 85 },
   "cordle": { img: "merch/cordle.jpg", price: 50 },
   "faim": { img: "merch/faim.jpg", price: 85 },
@@ -89,77 +134,124 @@ const merchProducts = {
   "sweet": { img: "merch/sweet.jpg", price: 85 },
   "win": { img: "merch/win.jpg", price: 85 },
   "wind": { img: "merch/wind.jpg", price: 85 }
+
 };
 
- // Modal elements
+
+// Modal elements
 const modal = document.getElementById('merch-modal');
 const closeBtn = document.getElementById('close-merch');
 const form = document.getElementById('merch-form');
+
 const productTitle = document.getElementById('product-title');
 const productImg = document.getElementById('product-img');
 const productPriceSpan = document.getElementById('product-price');
 
+
+// Open modal when merch item clicked
 document.querySelectorAll('.merch-item').forEach(item => {
+
   item.addEventListener('click', () => {
-    const imgSrc = item.querySelector('img').getAttribute('src');
-    const key = imgSrc.split('/').pop().split('.')[0];
+
+    const key = item.querySelector('img')
+    .getAttribute('src')
+    .split('/')
+    .pop()
+    .split('.')[0];
 
     if (merchProducts[key]) {
+
       const product = merchProducts[key];
 
-      productTitle.textContent = key.toUpperCase(); // Product name
-      productImg.src = product.img;                // Product image
-      productPriceSpan.textContent = `$${product.price}`; // Product price
+      productTitle.textContent = key.toUpperCase();
+      productImg.src = product.img;
+      productPriceSpan.textContent = product.price;
 
-      modal.classList.remove('hidden');           // Show modal
+      modal.classList.remove('hidden');
     }
+
   });
+
 });
 
+
+// Close modal
 closeBtn.addEventListener('click', () => {
+
   modal.classList.add('hidden');
+
 });
 
-window.addEventListener('click', (event) => {
-  if (event.target === modal) {
+
+// Close if clicking outside
+window.addEventListener('click', e => {
+
+  if (e.target === modal) {
+
     modal.classList.add('hidden');
+
   }
-}); 
 
-// Paystack form submission
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const price = form.dataset.price * 100; // convert to kobo
-    const name = document.getElementById('full-name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
-    const zip = document.getElementById('zip').value;
+});
 
-    if (!name || !email || !phone || !address || !zip) {
-        return alert("Please fill in all required fields");
+
+// Paystack payment for merch
+form.addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("full-name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+
+  const amount = parseInt(productPriceSpan.textContent) * 100;
+
+  let handler = PaystackPop.setup({
+
+    key: "pk_live_c78f281b6ca9f6d6a4b89adb7f2b05212750eabc",
+
+    email: email,
+
+    amount: amount,
+
+    metadata: {
+
+      custom_fields: [
+
+        {
+          display_name: "Full Name",
+          value: name
+        },
+
+        {
+          display_name: "Phone",
+          value: phone
+        }
+
+      ]
+
+    },
+
+    callback: function(response) {
+
+      alert("Payment successful! Your order has been placed.");
+
+      form.submit();
+
+      modal.classList.add("hidden");
+
+      form.reset();
+
+    },
+
+    onClose: function() {
+
+      alert("Payment cancelled.");
+
     }
 
-    var handler = PaystackPop.setup({
-        key: 'pk_live_c78f281b6ca9f6d6a4b89adb7f2b05212750eabc',
-        email: email,
-        amount: price,
-        metadata: {
-            custom_fields: [
-                { display_name: "Full Name", variable_name: "full_name", value: name },
-                { display_name: "Phone", variable_name: "phone", value: phone },
-                { display_name: "Address", variable_name: "address", value: address },
-                { display_name: "Zip Code", variable_name: "zip", value: zip }
-            ]
-        },
-        callback: function(response) {
-            alert("Payment successful! Thank you.");
-            modal.classList.add('hidden');
-            form.reset();
-        },
-        onClose: function() {
-            alert("Payment cancelled.");
-        }
-    });
-    handler.openIframe();
+  });
+
+  handler.openIframe();
+
 });

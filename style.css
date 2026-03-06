@@ -419,4 +419,112 @@ footer {
 #merch-form button:hover {
     background-color: #ff69b4;
     transform: scale(1.05);
+}
+
+#merch-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content{
+  background:#111;
+  padding:25px;
+  border-radius:12px;
+  width:90%;
+  max-width:400px;
+  text-align:center;
+}
+
+/* FORM FIX */
+#merch-form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:15px;
+}
+
+#merch-form input,
+#merch-form textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #333;
+  background:#222;
+  color:#fff;
+}
+
+#merch-form button{
+  margin-top:10px;
 } 
+
+.hidden {
+  display: none;
+}
+
+/* Sweet Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  text-align: center;
+  color: #fff;
+  background-color: #111;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255,64,129,0.5);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.popup-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ff1493;
+}
+
+.popup-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.popup-content .btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #ff1493;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.popup-content .btn:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05);
+}
